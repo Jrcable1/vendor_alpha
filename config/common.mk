@@ -495,3 +495,12 @@ include vendor/alpha/config/version.mk
 -include vendor/alpha-priv/keys/keys.mk
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
+
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/app/GoogleExtShared/GoogleExtShared.apk \
+    system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
+    system/lib/libtensorflowlite_jni.so \
+    system/lib64/libtensorflowlite_jni.so \
+    system/priv-app/DocumentsUIGoogle/DocumentsUIGoogle.apk \
+    system/priv-app/GoogleExtServices/GoogleExtServices.apk \
+    system/priv-app/TagGoogle/TagGoogle.apk

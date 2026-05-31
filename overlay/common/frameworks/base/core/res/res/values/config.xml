@@ -38,8 +38,6 @@
         <item>com.google.android.gms</item>
         <!-- The standard AOSP fused location provider -->
         <item>com.android.location.fused</item>
-        <!-- The MicroG Unified location provider -->
-        <item>org.microg.nlp</item>
     </string-array>
 
     <string-array name="config_locationExtraPackageNames" translatable="false">
@@ -475,5 +473,10 @@
     <!-- If AOD can show an ambient version of the wallpaper -->
     <bool name="config_dozeSupportsAodWallpaper">true</bool>
 
+    <!-- Whether to enable glanceable hub features on this device. -->
+    <bool name="config_glanceableHubEnabled">true</bool>
+
+    <!-- Whether glanceable hub is enabled by default. -->
+    <bool name="config_glanceableHubEnabledByDefault">true</bool>
 
 </resources>

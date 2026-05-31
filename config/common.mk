@@ -1,5 +1,6 @@
 $(call inherit-product, vendor/alpha/config/audio.mk)
 $(call inherit-product, vendor/addons/config.mk)
+$(call inherit-product-if-exists, axion-sdk/ax_tflite/common.mk)
 $(call inherit-product-if-exists, vendor/certification/config.mk)
 
 # Allow vendor prebuilt repos to exclude themselves from bp scanning
@@ -180,7 +181,7 @@ else
         ro.setupwizard.mode=OPTIONAL \
         setupwizard.feature.predeferred_enabled=false \
         setupwizard.feature.day_night_mode_enabled=true \
-        setupwizard.theme=glif_v4
+        setupwizard.theme=glif_expressive
 endif
 
 # Blur
@@ -223,10 +224,12 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Backup Tool
 ifneq ($(TARGET_EXCLUDE_BACKUPTOOL),true)
+    PRODUCT_PACKAGES += \
+        50-alpha.sh
+
     PRODUCT_COPY_FILES += \
         vendor/alpha/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-        vendor/alpha/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-        vendor/alpha/prebuilt/common/bin/50-alpha.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-alpha.sh
+        vendor/alpha/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions
 
     PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
         system/addon.d/50-alpha.sh
@@ -308,30 +311,34 @@ PRODUCT_PACKAGES += \
 
 # Apps
 PRODUCT_PACKAGES += \
+    AlphaThemePicker \
     AlphaVisuals \
+    AvatarPicker \
+    AxQuickLook \
+    AxSandbox \
+    AxWallpaperEffects \
+    AxionWidgets \
+    Backgrounds \
+    BatteryStatsViewer \
     Camelot \
     Etar \
-    Recorder \
-    Seedvault \
-    Twelve \
-    AvatarPicker \
-    Backgrounds \
+    ExactCalculator \
+    GameSpace \
     Glimpse \
+    Jelly \
     LatinIME \
     Launcher3QuickStep \
-    QuickAccessWallet \
-    ThemePicker \
-    ThemesStub \
-    ExactCalculator \
-    Jelly \
     LineageSetupWizard \
-    Updater \
-    BatteryStatsViewer \
-    GameSpace \
     LMOFreeform \
     LMOFreeformSidebar \
     OmniJaws \
-    OmniStyle
+    OmniStyle \
+    QuickAccessWallet \
+    Recorder \
+    Seedvault \
+    ThemesStub \
+    Twelve \
+    Updater
 
 ifneq ($(PRODUCT_NO_CAMERA),true)
     PRODUCT_PACKAGES += \

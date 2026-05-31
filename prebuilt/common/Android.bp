@@ -11,3 +11,8 @@ prebuilt_etc_xml {
     src: "etc/alpha-component-overrides.xml",
     sub_dir: "sysconfig",
 }
+
+prebuilt_addon_d {
+    name: "50-alpha.sh",
+    src: "bin/50-alpha.sh",
+}

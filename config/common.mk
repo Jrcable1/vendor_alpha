@@ -346,8 +346,7 @@ ifneq ($(PRODUCT_NO_CAMERA),true)
 endif
 
 ifneq ($(TARGET_EXCLUDES_AUDIOFX),true)
-    PRODUCT_PACKAGES += \
-        AudioFX
+    $(call inherit-product, packages/apps/AxionFx/config.mk)
 endif
 
 # ColumbusService
